@@ -15,10 +15,10 @@ con.connect(function(err) {
 });
 
 router.get('/MTEB', (req, resp) => {
-	resp.render('MorTheoEvngLab');
+	resp.render('morTheoEvngLab');
 });
 router.get('/MLET', (req, resp) => {
-	resp.render('MorLabEvngTheo');
+	resp.render('morLabEvngTheo');
 });
 
 module.exports = router;

@@ -21,63 +21,74 @@
     <tbody>
         <tr>
         <th scope="row">Monday</th>
-        <td><button>L1+L2</button></td>
-        <td><button>L3+L4</button></td>
-        <td><button>L5+L6</button></td>
-        <td><button>A2</button></td>
-        <td><button>F2</button></td>
-        <td><button>D2</button></td>
-        <td><button>TB2</button></td>
-        <td><button>TG2</button></td>
+        <td><button class="slot">L1+L2</button></td>
+        <td><button class="slot">L3+L4</button></td>
+        <td><button class="slot">L5+L6</button></td>
+        <td><button class="slot">A2</button></td>
+        <td><button class="slot">F2</button></td>
+        <td><button class="slot">D2</button></td>
+        <td><button class="slot">TB2</button></td>
+        <td><button class="slot">TG2</button></td>
     </tr>
     <tr>
         <th scope="row">Tuesday</th>
-        <td><button>L7+L8</button></td>
-        <td><button>L9+L10</button></td>
-        <td><button>L11+L12</button></td>
-        <td><button>B2</button></td>
-        <td><button>G2</button></td>
-        <td><button>E2</button></td>
-        <td><button>TC2</button></td>
-        <td><button>TAA2</button></td>
+        <td><button class="slot">L7+L8</button></td>
+        <td><button class="slot">L9+L10</button></td>
+        <td><button class="slot">L11+L12</button></td>
+        <td><button class="slot">B2</button></td>
+        <td><button class="slot">G2</button></td>
+        <td><button class="slot">E2</button></td>
+        <td><button class="slot">TC2</button></td>
+        <td><button class="slot">TAA2</button></td>
     </tr>
     <tr>
         <th scope="row">Wednesday</th>
-        <td><button>L13+L14</button></td>
-        <td><button>L15+L16</button></td>
-        <td><button>L17+L18</button></td>
-        <td><button>C2</button></td>
-        <td><button>A2</button></td>
-        <td><button>F2</button></td>
-        <td><button>TD2</button></td>
-        <td><button>TBB2</button></td>
+        <td><button class="slot">L13+L14</button></td>
+        <td><button class="slot">L15+L16</button></td>
+        <td><button class="slot">L17+L18</button></td>
+        <td><button class="slot">C2</button></td>
+        <td><button class="slot">A2</button></td>
+        <td><button class="slot">F2</button></td>
+        <td><button class="slot">TD2</button></td>
+        <td><button class="slot">TBB2</button></td>
     </tr>
     <tr>
         <th scope="row">Thursday</th>
-        <td><button>L19+L20</button></td>
-        <td><button>L21+L22</button></td>
-        <td><button>L23+L24</button></td>
-        <td><button>D2</button></td>
-        <td><button>B2</button></td>
-        <td><button>G2</button></td>
-        <td><button>TE2</button></td>
-        <td><button>TCC2</button></td>
+        <td><button class="slot">L19+L20</button></td>
+        <td><button class="slot">L21+L22</button></td>
+        <td><button class="slot">L23+L24</button></td>
+        <td><button class="slot">D2</button></td>
+        <td><button class="slot">B2</button></td>
+        <td><button class="slot">G2</button></td>
+        <td><button class="slot">TE2</button></td>
+        <td><button class="slot">TCC2</button></td>
     </tr>
     <tr>
         <th scope="row">Friday</th>
-        <td><button>L25+L26</button></td>
-        <td><button>L27+L28</button></td>
-        <td><button>L29+L30</button></td>
-        <td><button>E2</button></td>
-        <td><button>C2</button></td>
-        <td><button>TA2</button></td>
-        <td><button>TF2</button></td>
-        <td><button>TDD2</button></td>
+        <td><button class="slot">L25+L26</button></td>
+        <td><button class="slot">L27+L28</button></td>
+        <td><button class="slot">L29+L30</button></td>
+        <td><button class="slot">E2</button></td>
+        <td><button class="slot">C2</button></td>
+        <td><button class="slot">TA2</button></td>
+        <td><button class="slot">TF2</button></td>
+        <td><button class="slot">TDD2</button></td>
     </tr>
     </tbody>
     
 </table>
 </div>
+<script>
+    document.querySelectorAll('.slot').forEach((item,index)=>{
+        item.addEventListener('click',function(){
+            item.disabled="true";
+            item.style.backgroundColor="#FFFF2E";
+            item.style.color="rgb(211,23,23)";
+            
+        })
+    })
+    
+</script>
 
 
 <%- include ('./partials/footer.ejs'); -%>

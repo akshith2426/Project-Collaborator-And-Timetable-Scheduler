@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/public'));
 
 //Routes
 app.use('/', require('./routes/welcomePage'));
-app.use('/FreeTimeScheduler', require('./routes/FreeTimeScheduler'));
+app.use('/freeTimeScheduler', require('./routes/freeTimeScheduler'));
 
 let port = process.env.PORT;
 if (port == null || port == '') {
