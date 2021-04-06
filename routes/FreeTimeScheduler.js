@@ -11,10 +11,8 @@ var con = mysql.createConnection({
 });
 con.connect(function(err) {
 	if (err) throw err;
-	console.log('MySQL Database Connected');
+	console.log('MySQL Database Connected for freeTimeScheduler Pages');
 });
-
-//Auth Logic
 
 //Batch Routes
 

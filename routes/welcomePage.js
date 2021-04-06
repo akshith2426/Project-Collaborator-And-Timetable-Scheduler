@@ -14,7 +14,7 @@ const mysql = require('mysql');
 // 	console.log('MySQL Database Connected');
 // });
 
-router.get('/welcome', (req, resp) => {
+router.get('/', (req, resp) => {
 	resp.render('welcomePage');
 });
 
