@@ -5,11 +5,11 @@ module.exports = {
 
 		// if they aren't redirect them to the home page
 		res.redirect('/welcome');
+	},
+	forwardAuthenticated: function(req, res, next) {
+		if (!req.isAuthenticated()) {
+			return next();
+		}
+		res.redirect('/profile');
 	}
-	// forwardAuthenticated1: function(req, res, next) {
-	// 	if (!req.isAuthenticated()) {
-	// 		return next();
-	// 	}
-	// 	res.redirect('/Client_Dashboard');
-	// }
 };

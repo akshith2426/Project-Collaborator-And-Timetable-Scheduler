@@ -1,9 +1,9 @@
 const express = require('express');
 var passport = require('passport');
 const router = express.Router();
-const { isLoggedIn } = require('../config/auth');
+const { isLoggedIn, forwardAuthenticated } = require('../config/auth');
 
-router.get('/login', function(req, res) {
+router.get('/login', forwardAuthenticated, function(req, res) {
 	// render the page and pass in any flash data if it exists
 	res.render('login.ejs', { message: req.flash('loginMessage') });
 });
@@ -26,7 +26,7 @@ router.post(
 	}
 );
 
-router.get('/signup', function(req, res) {
+router.get('/signup', forwardAuthenticated, function(req, res) {
 	// render the page and pass in any flash data if it exists
 	res.render('signup.ejs', { message: req.flash('signupMessage') });
 });
