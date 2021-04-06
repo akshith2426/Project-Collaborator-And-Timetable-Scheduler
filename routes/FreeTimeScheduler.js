@@ -16,7 +16,7 @@ con.connect(function(err) {
 
 //Batch Routes
 
-router.get('/MTEB', isLoggedIn, (req, resp) => {
+router.get('/MTEL', isLoggedIn, (req, resp) => {
 	resp.render('morTheoEvngLab');
 });
 

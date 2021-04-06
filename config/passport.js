@@ -54,17 +54,29 @@ module.exports = function(passport) {
 						// create the user
 						var newUserMysql = {
 							username: username,
-							password: password // use the generateHash function in our user model
+							password: password,
+							fullname: req.body.fullname,
+							regno: req.body.regno,
+							batch: req.body.batch
 						};
+						// console.log(req.body);
 
-						var insertQuery = 'INSERT INTO users_table ( username, password ) values (?,?)';
-						con.query(insertQuery, [ newUserMysql.username, newUserMysql.password ], function(
-							mistake,
-							row
-						) {
-							newUserMysql.id = row.insertId;
-							return done(null, newUserMysql);
-						});
+						var insertQuery =
+							'INSERT INTO users_table ( username,password ,fullname,regno,batch ) values (?,?,?,?,?)';
+						con.query(
+							insertQuery,
+							[
+								newUserMysql.username,
+								newUserMysql.password,
+								newUserMysql.fullname,
+								newUserMysql.regno,
+								newUserMysql.batch
+							],
+							function(mistake, row) {
+								newUserMysql.id = row.insertId;
+								return done(null, newUserMysql);
+							}
+						);
 					}
 				});
 			}

@@ -16,7 +16,7 @@ router.post(
 		failureFlash: true // allow flash messages
 	}),
 	function(req, res) {
-		console.log('hello');
+		// console.log('hello');
 		if (req.body.remember) {
 			req.session.cookie.maxAge = 1000 * 60 * 3;
 		} else {
@@ -40,6 +40,7 @@ router.post(
 );
 
 router.get('/profile', isLoggedIn, function(req, res) {
+	// console.log(req.user.batch);
 	res.render('profile.ejs', {
 		user: req.user // get the user out of session and pass to template
 	});
