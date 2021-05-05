@@ -14,29 +14,23 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="/profile">Welcome</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link " href="/">Home</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link " href="/">Projects Collaborator</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link " href="/">TimeTable Scheduler</a>
-            </li>
-			
-            <li class="nav-item active">
-                <a class="nav-link" href="/signup">Signup</a>
-            </li>
-    </div>
+    <nav>
+	<input id="nav-toggle" type="checkbox">
+	<div class="logo"><strong>Welcome</strong></div>
+	<ul class="links">
+		<li><a href="/">Home</a></li>
+		<li><a href="/">Projects Collaborator</a></li>
+		<li><a href="/">Timetable Schdeuler</a></li>
+		<li><a href="/signup">Signup</a></li>
+	</ul>
+	<label for="nav-toggle" class="icon-burger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</label>
 </nav>
+<br>
+<br><br><br>
 <h3>Welcome Back !</h3>
 <h4>Login Now to Use our Features again.</h4>
 <div class="container">
