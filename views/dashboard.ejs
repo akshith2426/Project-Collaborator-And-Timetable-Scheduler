@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Dashboard Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
-    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link rel="stylesheet" href="/stylesheets/dashboard.css">
     
 </head>
 <body>
@@ -17,12 +17,18 @@
 	<div class="logo"><strong><%= user.username %> dashboard</strong></div>
 	<ul class="links">
 		<li><a href="/">Home</a></li>
-		<li><a href="/profile">Edit Profile</a></li>
+		<li><a href="/editProfile">Edit Profile</a></li>
 		<% if (user.batch==1){%>
-			<li><a href="/freeTimeScheduler/MTEL">Morning Theory & Evening Lab</a></li>
+			<li><a href="/freeTimeScheduler/eveningLab">Morning Theory & Evening Lab</a></li>
 		<%}%>
 		<% if (user.batch==0){%>
-			<li><a href="/freeTimeScheduler/MLET">Morning Lab & Evening Theory</a></li>
+			<li><a href="/freeTimeScheduler/morningLab">Morning Lab & Evening Theory</a></li>
+		<%}%>
+		<% if (user.batch==1){%>
+			<li><a href="/freeTimeScheduler/freeSlots/EveningLab">All Events</a></li>
+		<%}%>
+		<% if (user.batch==0){%>
+			<li><a href="/freeTimeScheduler/freeSlots/MorningLab">All Events</a></li>
 		<%}%>
 		<li><a href="/">Projects View</a></li>
 		<li><a href="/logout">Logout</a></li>
@@ -36,7 +42,7 @@
 <br><br><br><br>
 <div class="container">
 	<div class="page-header text-center">
-		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
+		<h1><span class="fa fa-anchor"></span> Dashboard Page</h1>
 	</div>
 	<div class="row">
 		<!-- LOCAL INFORMATION -->
@@ -44,9 +50,8 @@
 			<div class="well">
 				<h3><span class="fa fa-user"></span> Local</h3>
 					<p>
-						<strong>id</strong>: <%= user.id %><br>
 						<strong>username</strong>: <%= user.username %><br>
-						<strong>password</strong>: <%= user.password %>
+						<strong>regno</strong>: <%= user.regno %>
 					</p>
 
 			</div>

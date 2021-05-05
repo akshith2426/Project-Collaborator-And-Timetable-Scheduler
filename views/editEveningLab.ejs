@@ -4,9 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Edit Event Morning Lab Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/stylesheets/editEveningLab.css">
   </head>
   <body>
+    
+     <nav>
+	      <input id="nav-toggle" type="checkbox">
+	      <div class="logo"><strong>Timetable Scheduler</strong></div>
+        <ul class="links">
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/freeTimeScheduler/freeSlots/EveningLab">All Events</a></li>
+          <li><a href="/freeTimeScheduler/today/EveningLab">Today Events</a></li>
+          <li><a href="/">Project Collaborator</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+        <label for="nav-toggle" class="icon-burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </label>
+    </nav>
+    <br><br><br><br>
     <h1>Edit/Add Task</h1>
     <form action="/freeTimeScheduler/edit/EveningLab" method="POST">
       <input type="text" name="task" />
@@ -18,5 +40,4 @@
       />
       <input type="submit" />
     </form>
-  </body>
-</html>
+<%- include ('./partials/footer.ejs'); -%>

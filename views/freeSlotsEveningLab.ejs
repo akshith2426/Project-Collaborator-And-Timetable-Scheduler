@@ -4,9 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Free Slots Evening Lab Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/stylesheets/freeSlotsEveningLab.css">
   </head>
   <body>
+    
+     <nav>
+	      <input id="nav-toggle" type="checkbox">
+	      <div class="logo"><strong>Timetable Scheduler</strong></div>
+        <ul class="links">
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/freeTimeScheduler/today/EveningLab">Today Events</a></li>
+          <li><a href="/">Project Collaborator</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+        <label for="nav-toggle" class="icon-burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </label>
+    </nav>
+    <br><br><br><br>
     <% result.forEach(res=>{ %> <% switch(res.freeSlot) { case '11' : %>
     <li>Monday</li>
     <li>08:00 AM - 08:45 AM</li>
@@ -287,5 +308,4 @@
       ><button>Add/Edit Task</button></a
     >
     <% break; } %> <% }) %>
-  </body>
-</html>
+ <%- include ('./partials/footer.ejs'); -%>
