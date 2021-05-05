@@ -1,24 +1,33 @@
-<%- include ('./partials/header.ejs'); -%>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/profile">Profile</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link " href="/">Home</a>
-            </li>
-			<li class="nav-item active">
-                <a class="nav-link" href="/freeTimeScheduler/MLET">MorningLabEveningTheory</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/logout">Logout</a>
-            </li>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Lab & Evening Theory</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/stylesheets/MLET.css">
+    
+</head>
+<body>
+<nav>
+	<input id="nav-toggle" type="checkbox">
+	<div class="logo"><strong>Timetable Schdeuler</strong></div>
+	<ul class="links">
+		<li><a href="/">Home</a></li>
+		<li><a href="/profile">Dashboard</a></li>
+		<li><a href="/freeTimeScheduler/MLET">Morning Lab & Evening Theory</a></li>
+		<li><a href="/logout">Logout</a></li>
+	</ul>
+	<label for="nav-toggle" class="icon-burger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</label>
 </nav>
-<h4>Morning Lab Evening Theory</h4>
+<br><br><br><br>
 <h4>Time Table :-</h4>
 <!--TimeTable -->
 <div class="container">
@@ -59,7 +68,6 @@
         <td><button class="slot slot27">TC2</button></td>
         <td><button class="slot slot28">TAA2</button></td>
       </tr>
-      slot2
       <tr>
         <th scope="row">Wednesday</th>
         <td><button class="slot slot31">L13+L14</button></td>
@@ -95,7 +103,7 @@
       </tr>
     </tbody>
   </table>
-  <input type="submit" class="firstSubmit" name="" id="" />
+  <input type="submit" class="firstSubmit" name="" id="" value="Generate Free Slots" />
   <form method="POST" action="/freeTimeScheduler/freeSlots">
     <input
       type="text"
