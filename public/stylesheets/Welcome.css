@@ -1,0 +1,51 @@
+body{
+    background-color: #E5E5E5;
+}
+.nav{
+    background-color: #7434E3 ;
+    padding: 50px;
+}
+
+.nav h1{
+    text-align: left;
+    color: white;
+    padding-right: 100px;
+}
+
+.nav h4{
+    color: white;
+    padding-top: 12px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.nav a{
+    margin-left: 100px;
+    
+}
+
+.card{
+    height: 450px;
+    border-radius: 10px;
+}
+
+.card-title{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.card-body p{
+    margin: 50px;
+    text-align: center;
+    font-size: large;
+}
+
+.card-body a{
+    margin-top: 100px;
+    margin-left: 180px;
+    background-color:#7434E3 ;
+    color: white;
+}
+
+
+

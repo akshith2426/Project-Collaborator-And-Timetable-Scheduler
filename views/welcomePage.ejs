@@ -1,17 +1,54 @@
-<%- include ('./partials/header.ejs'); -%>
-<div class="container">
-        <div class="jumbotron text-center">
-            <h1><span class="fa fa-lock"></span>Software Engineering Project</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineering Project</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/stylesheets/Welcome.css">
+</head>
+<body>
 
-            <p>Login or Register with:</p>
+    <div class="nav" >
+        <h1>Home</h1>
+        <h4>Timetable Scheduler</h4>
+        <h4>Project collaborator</h4>
 
-            <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
-            <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
-        </div>
+        <a href="/login" class="btn btn-light btn-lg "> <b>Local Login</b></a>
+        <a href="/signup" class="btn btn-light btn-lg"> <b>Local Signup</b></a>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Timetable Scheduler</h4>
+                  <p class="card-text">User can schedule their free time tasks in hectic time table during the semister.</p>
+                  <a href="#" class="btn ">Add Timetable</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Project Collaborator</h4>
+                  <p class="card-text">Aspiring developers these are not able to find good teams for making projects.Through this,one can find any vacant position for project collaboration</p>
+                  <a href="#" class="btn">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
 
-
-
-
-
-<%- include ('./partials/footer.ejs'); -%>
+  
+   
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -7,38 +7,66 @@
     <title>Software Engineering Project</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/solar/bootstrap.min.css" integrity="sha384-NCwXci5f5ZqlDw+m7FwZSAwboa0svoPPylIW3Nf+GBDsyVum+yArYnaFLE9UDzLd" crossorigin="anonymous">
     <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <style>
+        
+    </style>
 </head>
 <body>
-<div class="container">
-    <div class="jumbotron">
-        <div class="col-sm-6 col-sm-offset-3">
-            <h1 class="text-primary"> <span class="fa fa-sign-in"></span> Login</h1>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="/profile">Welcome</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <!-- show any messages that come back with authentication -->
-            <% if (message.length > 0) { %>
-                <div class="alert alert-danger"><%= message %></div>
-            <% } %>
-
-            <!-- LOGIN FORM -->
-            <form action="/login" method="post">
-                <div class="form-group">
-                    <label class="col-form-label col-form-label-lg text-success">Username</label>
-                    <input type="text" class="form-control" name="username">
-                </div>
-                <div class="form-group">
-                    <label class="col-form-label col-form-label-lg text-success">Password</label>
-                    <input type="password" class="form-control" name="password">
-                </div>
-                <button type="submit" class="btn btn-warning btn-lg">Login</button>
-            </form>
-            <hr>
-            <p class="text-danger">Need an account? <a href="/signup">Signup</a></p>
-            <p class="text-danger">Or go to <a href="/">Home</a></p>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link " href="/">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link " href="/">Projects Collaborator</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link " href="/">TimeTable Scheduler</a>
+            </li>
+			
+            <li class="nav-item active">
+                <a class="nav-link" href="/signup">Signup</a>
+            </li>
     </div>
-        
+</nav>
+<h3>Welcome Back !</h3>
+<h4>Login Now to Use our Features again.</h4>
+<div class="container">
+    <div class="rl-container">
+        <div class="left-half">
+            <img src="/images/login-illustration.png" width="100%" class="login-illustration" alt="login-illustration">
+        </div>
+        <div class="right-half">
+            <div class="login-credentials form-group ">
+                <form method="POST" action="/login">
+                    <div class="form-group w-75 align-center">
+                        <label class="col-form-label col-form-label-lg">Username</label>
+                        <input type="text" class="form-control username" name="username" placeholder="Enter Username">
+                    </div>
+                    <div class="form-group w-75">
+                        <label class="col-form-label col-form-label-lg ">Password</label>
+                        <input type="password" class="form-control password" name="password" placeholder="Enter Password">
+                    </div>                
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-lg loginBtn">Login</button>
+                    </div>
+                </form>    
+                <hr>
+                <hr>             
+                <div class="text-center">
+                    <button type="submit" class="btn btn-lg createAccount"><a href="/signup">Signup</a></button>
+                </div>
+            </div>
+        </div>
+    </div>        
 </div>
 
 <%- include ('./partials/footer.ejs'); -%>
