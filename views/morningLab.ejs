@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Morning Lab & Evening Theory</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/stylesheets/MLET.css" />
+  </head>
+  <body>
+    <nav>
+      <input id="nav-toggle" type="checkbox" />
+      <div class="logo"><strong>Timetable Schdeuler</strong></div>
+      <ul class="links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/profile">Dashboard</a></li>
+        <li>
+          <a href="/freeTimeScheduler/MLET">Morning Lab & Evening Theory</a>
+        </li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+      <label for="nav-toggle" class="icon-burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </label>
+    </nav>
+    <br /><br /><br /><br />
+    <h4>Time Table :-</h4>
+    <!--TimeTable -->
+    <div class="container">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Timing</th>
+            <th scope="col">08:00 - 09:30</th>
+            <th scope="col">10:00 - 11:30</th>
+            <th scope="col">11:30 - 01:00</th>
+            <th scope="col">02:00 - 02:45</th>
+            <th scope="col">03:00 - 03:45</th>
+            <th scope="col">04:00 - 04:45</th>
+            <th scope="col">05:00 - 05:45</th>
+            <th scope="col">06:00 - 06:45</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Monday</th>
+            <td><button class="slot slot11">L1+L2</button></td>
+            <td><button class="slot slot12">L3+L4</button></td>
+            <td><button class="slot slot13">L5+L6</button></td>
+            <td><button class="slot slot14">A2</button></td>
+            <td><button class="slot slot15">F2</button></td>
+            <td><button class="slot slot16">D2</button></td>
+            <td><button class="slot slot17">TB2</button></td>
+            <td><button class="slot slot18">TG2</button></td>
+          </tr>
+          <tr>
+            <th scope="row">Tuesday</th>
+            <td><button class="slot slot21">L7+L8</button></td>
+            <td><button class="slot slot22">L9+L10</button></td>
+            <td><button class="slot slot23">L11+L12</button></td>
+            <td><button class="slot slot24">B2</button></td>
+            <td><button class="slot slot25">G2</button></td>
+            <td><button class="slot slot26">E2</button></td>
+            <td><button class="slot slot27">TC2</button></td>
+            <td><button class="slot slot28">TAA2</button></td>
+          </tr>
+          <tr>
+            <th scope="row">Wednesday</th>
+            <td><button class="slot slot31">L13+L14</button></td>
+            <td><button class="slot slot32">L15+L16</button></td>
+            <td><button class="slot slot33">L17+L18</button></td>
+            <td><button class="slot slot34">C2</button></td>
+            <td><button class="slot slot35">A2</button></td>
+            <td><button class="slot slot36">F2</button></td>
+            <td><button class="slot slot37">TD2</button></td>
+            <td><button class="slot slot38">TBB2</button></td>
+          </tr>
+          <tr>
+            <th scope="row">Thursday</th>
+            <td><button class="slot slot41">L19+L20</button></td>
+            <td><button class="slot slot42">L21+L22</button></td>
+            <td><button class="slot slot43">L23+L24</button></td>
+            <td><button class="slot slot44">D2</button></td>
+            <td><button class="slot slot45">B2</button></td>
+            <td><button class="slot slot46">G2</button></td>
+            <td><button class="slot slot47">TE2</button></td>
+            <td><button class="slot slot48">TCC2</button></td>
+          </tr>
+          <tr>
+            <th scope="row">Friday</th>
+            <td><button class="slot slot51">L25+L26</button></td>
+            <td><button class="slot slot52">L27+L28</button></td>
+            <td><button class="slot slot53">L29+L30</button></td>
+            <td><button class="slot slot54">E2</button></td>
+            <td><button class="slot slot55">C2</button></td>
+            <td><button class="slot slot56">TA2</button></td>
+            <td><button class="slot slot57">TF2</button></td>
+            <td><button class="slot slot58">TDD2</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <input
+        type="submit"
+        class="firstSubmit"
+        name=""
+        id=""
+        value="Generate Free Slots"
+      />
+      <form method="POST" action="/freeTimeScheduler/freeSlots/MorningLab">
+        <input
+          type="text"
+          style="display: none"
+          class="slotsInput"
+          name="freeSlots"
+        />
+        <input type="submit" style="display: none" class="secondSubmit" id="" />
+      </form>
+    </div>
+    <script>
+      var classSlots = [];
+      var allSlots;
+      document.querySelectorAll(".slot").forEach((item, index) => {
+        item.addEventListener("click", function () {
+          item.disabled = "true";
+          item.style.backgroundColor = "#FFFF2E";
+          item.style.color = "rgb(211,23,23)";
+          console.log(item.className.substring(9, 11));
+          classSlots.push(item.className.substring(9, 11));
+          //   console.log(JSON.stringify(classSlots));
+          //   document.getElementsByClassName("slots").value = classSlots;
+        });
+      });
+
+      var allSlots = [
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "38",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46",
+        "47",
+        "48",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+      ];
+
+      var freeSlots = [];
+      var flag = 0;
+
+      document
+        .querySelector(".firstSubmit")
+        .addEventListener("click", function () {
+          for (var i = 0; i < allSlots.length; i++) {
+            for (var j = 0; j < classSlots.length; j++) {
+              if (classSlots[j] == allSlots[i]) {
+                flag = 1;
+                break;
+              }
+            }
+            if (flag == 0) {
+              freeSlots.push(allSlots[i]);
+            }
+            flag = 0;
+          }
+          document.querySelector(".slotsInput").value = JSON.stringify(
+            freeSlots
+          );
+          document.querySelector(".secondSubmit").click();
+        });
+    </script>
+
+    <%- include ('./partials/footer.ejs'); -%>
+  </body>
+</html>
