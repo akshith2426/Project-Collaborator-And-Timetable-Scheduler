@@ -12,6 +12,7 @@ var flash = require('connect-flash');
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/routes/uploads'));
 app.use(fileUpload());
 require('./config/passport')(passport);
 

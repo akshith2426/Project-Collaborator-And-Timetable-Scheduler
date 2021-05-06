@@ -41,15 +41,8 @@
 </nav>
 <br><br><br><br>
 <div class="container">
-	<div class="page-header text-center">
-		<h1><span class="fa fa-anchor"></span> Dashboard Page</h1>
-	</div>
 	<div class="row">
-		<!-- LOCAL INFORMATION -->
 		<div class="col-sm-6">
-			<div class="well">
-				<h3><span class="fa fa-user"></span> Local</h3>
-					<p>
 						<strong>username</strong>: <%= user.username %><br>
 						<strong>regno</strong>: <%= user.regno %><br>
 						<%if(user.skillset != ''){%>
@@ -62,9 +55,14 @@
 							<li><%=user.subdomain3 %></li>
 						</ul> 
 						<%}%>
-					</p>
-
-			</div>
+		</div>
+		<div class="col-sm-6">
+			<%if(user.image==''){%>
+				<img src="/images/defaultProfilePicture.jpg" alt="default-profile-picture">
+			<%}%>
+			<%if(user.image!=''){%>
+				<img src="<%=user.image%>" alt="default-profile-picture" width="200px" height="200px">
+			<%}%>
 		</div>
 
 	</div>

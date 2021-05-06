@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2021 at 06:12 AM
+-- Generation Time: May 06, 2021 at 08:14 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -118,10 +118,10 @@ CREATE TABLE `users_table` (
 --
 
 INSERT INTO `users_table` (`id`, `fullname`, `username`, `password`, `regno`, `batch`, `image`, `skillset`, `subdomain1`, `subdomain2`, `subdomain3`) VALUES
-(5, 'Akshith', 'akshith', 'akshith', '19BCE0001', 1, '', 'Backend Development', 'NodeJS', 'Sockets', 'Flask'),
-(6, 'sampreeth', 'sampreeth', 'sampreeth', '19BCE0865', 0, '', '', '', '', ''),
+(5, 'Akshith', 'akshith', 'akshith', '19BCE0001', 1, '', 'Backend Developments', 'NodeJS', 'Sockets', 'Flask'),
+(6, 'sampreeth', 'sampreeth', 'sampreeth', '19BCE0865', 0, 'logo192.png', '', '', '', ''),
 (7, 'a vasa', 'avasa', 'avasa', '3242323', 1, '', '', '', '', ''),
-(8, 'siamvit', 'siamvit', 'siamvit', '19BCE0100', 0, '', '', '', '', '');
+(8, 'siamvit', 'siamvit', 'siamvit', '19BCE0100', 0, 'logo512.png', 'Front End Developer', 'Figma', 'Adobe XD', 'Illustrator');
 
 --
 -- Indexes for dumped tables

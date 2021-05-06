@@ -1,9 +1,12 @@
 const express = require('express');
+var app = express();
 var passport = require('passport');
 const router = express.Router();
 var mysql = require('mysql');
 const { isLoggedIn, forwardAuthenticated } = require('../config/auth');
-
+var path = require('path');
+var fileUpload = require('express-fileupload');
+app.use(express.static(__dirname + '/public'));
 var con = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
@@ -72,19 +75,42 @@ router.post('/editProfile/:id', isLoggedIn, function(req, resp) {
 	var subdomain1 = req.body.subdomain1;
 	var subdomain2 = req.body.subdomain2;
 	var subdomain3 = req.body.subdomain3;
-	var query_sql =
-		'UPDATE users_table SET fullname=?,username=?,password=?,regno=?,skillset=?,subdomain1=?,subdomain2=?,subdomain3=? WHERE id=? ';
-	con.query(
-		query_sql,
-		[ fullname, username, password, regno, skillset, subdomain1, subdomain2, subdomain3, id1 ],
-		function(err, result) {
-			if (err) {
-				throw err;
-			} else {
-				resp.redirect('/dashboard');
-			}
+	let imageUpload = req.files.imageUpload;
+	let uploadPath = __dirname + '/uploads/' + imageUpload.name;
+
+	if (!req.files || Object.keys(req.files).length === 0) {
+		return resp.status(400).send('No Files were Uploaded');
+	}
+	console.log(imageUpload);
+	imageUpload.mv(uploadPath, function(err) {
+		if (err) {
+			return resp.status(500).send(err);
 		}
-	);
+		var query_sql =
+			'UPDATE users_table SET fullname=?,username=?,password=?,regno=?,skillset=?,subdomain1=?,subdomain2=?,subdomain3=?,image=? WHERE id=? ';
+		con.query(
+			query_sql,
+			[
+				fullname,
+				username,
+				password,
+				regno,
+				skillset,
+				subdomain1,
+				subdomain2,
+				subdomain3,
+				imageUpload.name,
+				id1
+			],
+			function(mistake, result) {
+				if (mistake) {
+					throw err;
+				} else {
+					resp.redirect('/dashboard');
+				}
+			}
+		);
+	});
 });
 router.get('/logout', function(req, res) {
 	req.logout();
