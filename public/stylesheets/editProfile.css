@@ -143,6 +143,43 @@ nav .icon-burger .line {
 	opacity: 0.7;
 	font-weight: 600;
 }
+.skillset {
+	color: #7434e3;
+	font-weight: 600;
+}
+.skillset::placeholder {
+	color: #7434e3;
+	opacity: 0.7;
+	font-weight: 600;
+}
+.subdomain1 {
+	color: #7434e3;
+	font-weight: 600;
+}
+.subdomain1::placeholder {
+	color: #7434e3;
+	opacity: 0.7;
+	font-weight: 600;
+}
+.subdomain2 {
+	color: #7434e3;
+	font-weight: 600;
+}
+.subdomain2::placeholder {
+	color: #7434e3;
+	opacity: 0.7;
+	font-weight: 600;
+}
+.subdomain3 {
+	color: #7434e3;
+	font-weight: 600;
+}
+.subdomain3::placeholder {
+	color: #7434e3;
+	opacity: 0.7;
+	font-weight: 600;
+}
+
 .updateProfileBtn {
 	color: #7434e3;
 }

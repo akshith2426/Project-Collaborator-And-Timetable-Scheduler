@@ -51,7 +51,17 @@
 				<h3><span class="fa fa-user"></span> Local</h3>
 					<p>
 						<strong>username</strong>: <%= user.username %><br>
-						<strong>regno</strong>: <%= user.regno %>
+						<strong>regno</strong>: <%= user.regno %><br>
+						<%if(user.skillset != ''){%>
+						<strong>Skill Set</strong>: <%=user.skillset %>
+						<%}%>
+						<%if(user.subdomain1 != '' && user.subdomain3 != '' && user.subdomain3 != ''){%>
+						<ul>
+							<li><%=user.subdomain1 %></li>
+							<li><%=user.subdomain2 %></li>
+							<li><%=user.subdomain3 %></li>
+						</ul> 
+						<%}%>
 					</p>
 
 			</div>

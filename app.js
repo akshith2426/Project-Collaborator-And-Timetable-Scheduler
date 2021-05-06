@@ -3,7 +3,8 @@ var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var app = express();
 var bodyParser = require('body-parser');
-
+var path = require('path');
+var fileUpload = require('express-fileupload');
 var passport = require('passport');
 var flash = require('connect-flash');
 
@@ -11,6 +12,7 @@ var flash = require('connect-flash');
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
+app.use(fileUpload());
 require('./config/passport')(passport);
 
 // required for passport

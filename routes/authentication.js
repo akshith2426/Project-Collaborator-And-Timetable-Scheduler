@@ -68,14 +68,23 @@ router.post('/editProfile/:id', isLoggedIn, function(req, resp) {
 	var username = req.body.username;
 	var password = req.body.password;
 	var regno = req.body.regno;
-	var query_sql = 'UPDATE users_table SET fullname=?,username=?,password=?,regno=? WHERE id=? ';
-	con.query(query_sql, [ fullname, username, password, regno, id1 ], function(err, result) {
-		if (err) {
-			throw err;
-		} else {
-			resp.redirect('/dashboard');
+	var skillset = req.body.skillset;
+	var subdomain1 = req.body.subdomain1;
+	var subdomain2 = req.body.subdomain2;
+	var subdomain3 = req.body.subdomain3;
+	var query_sql =
+		'UPDATE users_table SET fullname=?,username=?,password=?,regno=?,skillset=?,subdomain1=?,subdomain2=?,subdomain3=? WHERE id=? ';
+	con.query(
+		query_sql,
+		[ fullname, username, password, regno, skillset, subdomain1, subdomain2, subdomain3, id1 ],
+		function(err, result) {
+			if (err) {
+				throw err;
+			} else {
+				resp.redirect('/dashboard');
+			}
 		}
-	});
+	);
 });
 router.get('/logout', function(req, res) {
 	req.logout();

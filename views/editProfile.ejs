@@ -57,7 +57,27 @@
 					<div class="form-group w-75 align-center">
                         <label class="col-form-label col-form-label-lg">Registration Number</label>
                         <input type="text" class="form-control regno" name="regno" placeholder="Enter Registration Number" value="<%= typeof user.regno != 'undefined' ? user.regno : '' %>">
-                    </div>              
+                    </div> 
+                    <div class="form-group w-75 align-center">
+                        <label class="col-form-label col-form-label-lg">Skill Set</label>
+                        <input type="text" class="form-control skillset" name="skillset" placeholder="Enter Skill Set" value="<%= typeof user.skillset != 'undefined' ? user.skillset : '' %>">
+                    </div>  
+                    <div class="form-group w-75 align-center">
+                            <label class="col-form-label col-form-label-lg">Subdomains</label>
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="text" class="form-control subdomain1 w-80" name="subdomain1" placeholder="Sub-Domain 1" value="<%= typeof user.subdomain1 != 'undefined' ? user.subdomain1 : '' %>">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control subdomain2 w-80" name="subdomain2" placeholder="Sub-Domain 2" value="<%= typeof user.subdomain2 != 'undefined' ? user.subdomain2 : '' %>">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control subdomain3 w-80" name="subdomain3" placeholder="Sub-Domain 3" value="<%= typeof user.subdomain3 != 'undefined' ? user.subdomain3 : '' %>">
+                            </div>
+                            
+                        </div>
+                        
+                    </div>           
                     <div class="text-center">
                         <button type="submit" class="btn btn-lg updateProfileBtn">Update Profile</button>
                     </div>

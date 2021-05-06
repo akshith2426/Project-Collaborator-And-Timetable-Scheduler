@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2021 at 01:06 PM
+-- Generation Time: May 06, 2021 at 06:12 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -30,49 +30,68 @@ SET time_zone = "+00:00";
 CREATE TABLE `timetablescheduler` (
   `freeSlotId` int(11) NOT NULL,
   `freeSlot` varchar(256) NOT NULL,
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `task` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `timetablescheduler`
 --
 
-INSERT INTO `timetablescheduler` (`freeSlotId`, `freeSlot`, `id`) VALUES
-(332, '12', 6),
-(333, '13', 6),
-(334, '14', 6),
-(335, '15', 6),
-(336, '16', 6),
-(337, '17', 6),
-(338, '18', 6),
-(339, '22', 6),
-(340, '23', 6),
-(341, '24', 6),
-(342, '25', 6),
-(343, '26', 6),
-(344, '27', 6),
-(345, '28', 6),
-(346, '32', 6),
-(347, '33', 6),
-(348, '34', 6),
-(349, '35', 6),
-(350, '36', 6),
-(351, '37', 6),
-(352, '38', 6),
-(353, '42', 6),
-(354, '43', 6),
-(355, '44', 6),
-(356, '45', 6),
-(357, '46', 6),
-(358, '47', 6),
-(359, '48', 6),
-(360, '52', 6),
-(361, '53', 6),
-(362, '54', 6),
-(363, '55', 6),
-(364, '56', 6),
-(365, '57', 6),
-(366, '58', 6);
+INSERT INTO `timetablescheduler` (`freeSlotId`, `freeSlot`, `id`, `task`) VALUES
+(283, '11', 5, ''),
+(284, '12', 5, ''),
+(285, '13', 5, ''),
+(286, '16', 5, ''),
+(287, '17', 5, ''),
+(288, '18', 5, ''),
+(289, '22', 5, ''),
+(290, '23', 5, ''),
+(291, '24', 5, ''),
+(292, '28', 5, ''),
+(293, '32', 5, ''),
+(294, '36', 5, ''),
+(295, '38', 5, ''),
+(296, '42', 5, ''),
+(297, '43', 5, ''),
+(298, '44', 5, ''),
+(299, '47', 5, ''),
+(300, '48', 5, ''),
+(301, '52', 5, ''),
+(302, '53', 5, ''),
+(303, '54', 5, ''),
+(304, '57', 5, ''),
+(305, '58', 5, ''),
+(306, '11', 6, 'dhobi'),
+(307, '12', 6, ''),
+(308, '13', 6, ''),
+(309, '15', 6, ''),
+(310, '16', 6, ''),
+(311, '17', 6, ''),
+(312, '18', 6, ''),
+(313, '21', 6, ''),
+(314, '22', 6, ''),
+(315, '25', 6, ''),
+(316, '27', 6, ''),
+(317, '28', 6, ''),
+(318, '31', 6, 'gym'),
+(319, '32', 6, ''),
+(320, '35', 6, ''),
+(321, '37', 6, ''),
+(322, '38', 6, 'gym'),
+(323, '41', 6, ''),
+(324, '42', 6, ''),
+(325, '43', 6, ''),
+(326, '46', 6, ''),
+(327, '47', 6, ''),
+(328, '48', 6, ''),
+(329, '51', 6, ''),
+(330, '52', 6, ''),
+(331, '53', 6, ''),
+(332, '55', 6, ''),
+(333, '56', 6, ''),
+(334, '57', 6, ''),
+(335, '58', 6, '');
 
 -- --------------------------------------------------------
 
@@ -86,16 +105,23 @@ CREATE TABLE `users_table` (
   `username` varchar(20) NOT NULL,
   `password` varchar(60) NOT NULL,
   `regno` varchar(9) NOT NULL,
-  `batch` int(2) NOT NULL
+  `batch` int(2) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `skillset` varchar(250) NOT NULL,
+  `subdomain1` varchar(250) NOT NULL,
+  `subdomain2` varchar(250) NOT NULL,
+  `subdomain3` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users_table`
 --
 
-INSERT INTO `users_table` (`id`, `fullname`, `username`, `password`, `regno`, `batch`) VALUES
-(5, 'Akshith', 'akshith', 'hello123', '19BCE0095', 1),
-(6, 'sampreeth', 'sampreeth', 'sampu123', '19BCE0865', 0);
+INSERT INTO `users_table` (`id`, `fullname`, `username`, `password`, `regno`, `batch`, `image`, `skillset`, `subdomain1`, `subdomain2`, `subdomain3`) VALUES
+(5, 'Akshith', 'akshith', 'akshith', '19BCE0001', 1, '', 'Backend Development', 'NodeJS', 'Sockets', 'Flask'),
+(6, 'sampreeth', 'sampreeth', 'sampreeth', '19BCE0865', 0, '', '', '', '', ''),
+(7, 'a vasa', 'avasa', 'avasa', '3242323', 1, '', '', '', '', ''),
+(8, 'siamvit', 'siamvit', 'siamvit', '19BCE0100', 0, '', '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -105,7 +131,8 @@ INSERT INTO `users_table` (`id`, `fullname`, `username`, `password`, `regno`, `b
 -- Indexes for table `timetablescheduler`
 --
 ALTER TABLE `timetablescheduler`
-  ADD PRIMARY KEY (`freeSlotId`);
+  ADD PRIMARY KEY (`freeSlotId`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `users_table`
@@ -121,13 +148,23 @@ ALTER TABLE `users_table`
 -- AUTO_INCREMENT for table `timetablescheduler`
 --
 ALTER TABLE `timetablescheduler`
-  MODIFY `freeSlotId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=367;
+  MODIFY `freeSlotId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=336;
 
 --
 -- AUTO_INCREMENT for table `users_table`
 --
 ALTER TABLE `users_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `timetablescheduler`
+--
+ALTER TABLE `timetablescheduler`
+  ADD CONSTRAINT `timetablescheduler_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users_table` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
