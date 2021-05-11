@@ -31,6 +31,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 //Routes
 app.use('/', require('./routes/welcomePage'));
 app.use('/freeTimeScheduler', require('./routes/freeTimeScheduler'));
+app.use('/projectsCollaborator', require('./routes/projectsCollaborator'));
 app.use('/', require('./routes/authentication'));
 
 let port = process.env.PORT;

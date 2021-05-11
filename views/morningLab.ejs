@@ -20,9 +20,16 @@
       <ul class="links">
         <li><a href="/">Home</a></li>
         <li><a href="/dashboard">Dashboard</a></li>
+        <% if (user.batch==1){%>
         <li>
-          <a href="/freeTimeScheduler/morningLab">Morning Lab & Evening Theory</a>
+          <a href="/freeTimeScheduler/freeSlots/EveningLab">All Events</a>
         </li>
+        <%}%>
+        <% if (user.batch==0){%>
+          <li>
+          <a href="/freeTimeScheduler/freeSlots/MorningLab">All Events</a>
+        </li>
+        <%}%>
         <li><a href="/logout">Logout</a></li>
       </ul>
       <label for="nav-toggle" class="icon-burger">

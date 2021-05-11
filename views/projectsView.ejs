@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects View</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/stylesheets/projectsView.css"> 
+</head> 
+<body>
+<nav> 
+	<input id="nav-toggle" type="checkbox">
+	<div class="logo"><strong>Projects View</strong></div>
+	<ul class="links">
+		<li><a href="/projectsCollaborator/newProject">New Project</a></li>
+		<li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+		<li><a href="/">Timetable Scheduler</a></li>
+		<li><a href="/logout">Logout</a></li>
+	</ul>
+	<label for="nav-toggle" class="icon-burger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</label>
+</nav> 
+<br><br><br><br>
+<div class="container">
+	<%result.forEach(function(results){%>
+		<div class="card">
+			<div class="card-body">
+				<p class="card-text">
+					Posted by <%=results.projectLeader %>
+					<span class="timestamp"><%=results.timestamp%></span>
+					<hr>
+					<h3 class="projectTitle"><%=results.projectTitle%></h3>
+					<div class="jumbotron">
+						<%=results.projectDescription%>
+						<br>
+						Vacancy Postion :- <%=results.vacancyRole%>
+						<br>
+						Required Skillset :- <%=results.requiredSkillSet%>
+						<br>
+						<div class="deadline">Apply By <%=results.deadline%></div>
+					</div>
+					
+				</p>
+				<button type="submit" class="btn btn-lg applyNow">Apply Now</button>
+			</div>
+		</div>
+		<br>
+	<%})%>
+</div>

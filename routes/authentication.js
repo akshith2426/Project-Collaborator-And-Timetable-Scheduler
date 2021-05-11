@@ -11,12 +11,12 @@ var con = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
 	password: '',
-	database: 'software_project',
+	database: 'software_projecttesting',
 	multipleStatements: true
 });
 con.connect(function(error) {
 	if (error) throw error;
-	console.log('MySQL Database Connected for Edit Profile Page');
+	console.log('MySQL Database Connected for editProfile Page');
 });
 router.get('/login', forwardAuthenticated, function(req, res) {
 	// render the page and pass in any flash data if it exists
@@ -70,7 +70,6 @@ router.post('/editProfile/:id', isLoggedIn, function(req, resp) {
 	var fullname = req.body.fullname;
 	var username = req.body.username;
 	var password = req.body.password;
-	var regno = req.body.regno;
 	var skillset = req.body.skillset;
 	var subdomain1 = req.body.subdomain1;
 	var subdomain2 = req.body.subdomain2;
@@ -81,30 +80,19 @@ router.post('/editProfile/:id', isLoggedIn, function(req, resp) {
 	if (!req.files || Object.keys(req.files).length === 0) {
 		return resp.status(400).send('No Files were Uploaded');
 	}
-	console.log(imageUpload);
+	// console.log(imageUpload);
 	imageUpload.mv(uploadPath, function(err) {
 		if (err) {
 			return resp.status(500).send(err);
 		}
 		var query_sql =
-			'UPDATE users_table SET fullname=?,username=?,password=?,regno=?,skillset=?,subdomain1=?,subdomain2=?,subdomain3=?,image=? WHERE id=? ';
+			'UPDATE users_table SET fullname=?,username=?,password=?,skillset=?,subdomain1=?,subdomain2=?,subdomain3=?,image=? WHERE regno=? ';
 		con.query(
 			query_sql,
-			[
-				fullname,
-				username,
-				password,
-				regno,
-				skillset,
-				subdomain1,
-				subdomain2,
-				subdomain3,
-				imageUpload.name,
-				id1
-			],
+			[ fullname, username, password, skillset, subdomain1, subdomain2, subdomain3, imageUpload.name, id1 ],
 			function(mistake, result) {
 				if (mistake) {
-					throw err;
+					throw mistake;
 				} else {
 					resp.redirect('/dashboard');
 				}

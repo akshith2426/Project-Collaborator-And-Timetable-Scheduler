@@ -30,7 +30,7 @@
 		<% if (user.batch==0){%>
 			<li><a href="/freeTimeScheduler/freeSlots/MorningLab">All Events</a></li>
 		<%}%>
-		<li><a href="/">Projects View</a></li>
+		<li><a href="/projectsCollaborator/projectsView">Projects View</a></li>
 		<li><a href="/logout">Logout</a></li>
 	</ul>
 	<label for="nav-toggle" class="icon-burger">
@@ -41,7 +41,7 @@
 </nav> 
 <br><br><br><br>
 <div id="editProfileDiv" class="container">
-    <form action="/editProfile/<%=user.id%>" method="POST" enctype="multipart/form-data">
+    <form action="/editProfile/<%=user.regno%>" method="POST" enctype="multipart/form-data">
                     <div class="form-group w-75 align-center">
                         <label class="col-form-label col-form-label-lg">Full Name</label>
                         <input type="text" class="form-control fullname" name="fullname" placeholder="Enter Fullname" value="<%= typeof user.fullname != 'undefined' ? user.fullname : '' %>">
@@ -53,11 +53,7 @@
                     <div class="form-group w-75">
                         <label class="col-form-label col-form-label-lg ">Password</label>
                         <input type="password" class="form-control password" name="password" placeholder="Enter Password" value="<%= typeof user.password != 'undefined' ? user.password : '' %>">
-                    </div> 
-					<div class="form-group w-75 align-center">
-                        <label class="col-form-label col-form-label-lg">Registration Number</label>
-                        <input type="text" class="form-control regno" name="regno" placeholder="Enter Registration Number" value="<%= typeof user.regno != 'undefined' ? user.regno : '' %>">
-                    </div> 
+                    </div>
                     <div class="form-group w-75 align-center">
                         <label class="col-form-label col-form-label-lg">Profile Picture Upload</label>
                         <input type="file" class="form-control imageUpload" name="imageUpload" accept="image/*"  >

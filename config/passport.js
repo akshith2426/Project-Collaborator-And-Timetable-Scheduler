@@ -6,12 +6,12 @@ var con = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
 	password: '',
-	database: 'software_project',
+	database: 'software_projecttesting',
 	multipleStatements: true
 });
 con.connect(function(error) {
 	if (error) throw error;
-	console.log('MySQL Database Connected for Authentication Pages');
+	console.log('MySQL Database Connected for authentication Pages');
 });
 
 module.exports = function(passport) {
@@ -20,12 +20,12 @@ module.exports = function(passport) {
 	// passport needs ability to serialize and unserialize users out of session
 	// used to serialize the user for the session
 	passport.serializeUser(function(user, done) {
-		done(null, user.id);
+		done(null, user.regno);
 	});
 
 	// used to deserialize the user
-	passport.deserializeUser(function(id, done) {
-		con.query('SELECT * FROM users_table WHERE id = ? ', [ id ], function(err, rows) {
+	passport.deserializeUser(function(regno, done) {
+		con.query('SELECT * FROM users_table WHERE regno = ? ', [ regno ], function(err, rows) {
 			done(err, rows[0]);
 		});
 	});
