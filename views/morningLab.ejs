@@ -7,9 +7,14 @@
     <title>Morning Lab & Evening Theory</title>
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"crossorigin="anonymous"/>
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
     <link
-      rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"/>
+      rel="stylesheet"
+      href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+    />
     <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="/stylesheets/morningLab.css" />
   </head>
@@ -24,9 +29,8 @@
         <li>
           <a href="/freeTimeScheduler/freeSlots/EveningLab">All Events</a>
         </li>
-        <%}%>
-        <% if (user.batch==0){%>
-          <li>
+        <%}%> <% if (user.batch==0){%>
+        <li>
           <a href="/freeTimeScheduler/freeSlots/MorningLab">All Events</a>
         </li>
         <%}%>
@@ -207,12 +211,12 @@
             }
             flag = 0;
           }
-          document.querySelector(".slotsInput").value = JSON.stringify(
-            freeSlots
-          );
+          document.querySelector(".slotsInput").value =
+            JSON.stringify(freeSlots);
           document.querySelector(".secondSubmit").click();
         });
     </script>
 
     <%- include ('./partials/footer.ejs'); -%>
-  
+  </body>
+</html>
