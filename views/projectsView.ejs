@@ -33,24 +33,25 @@
 		<div class="card">
 			<div class="card-body">
 				<p class="card-text">
-					Posted by <%=results.projectLeader %>
+					<span class="projectLeader">Posted by <%=results.projectLeader %></span>
 					<span class="timestamp"><%=results.timestamp%></span>
 					<hr>
 					<h3 class="projectTitle"><%=results.projectTitle%></h3>
 					<div class="jumbotron">
-						<%=results.projectDescription%>
+						Description :- <%=results.projectDescription%>
 						<br>
-						Vacancy Postion :- <%=results.vacancyRole%>
+						<strong>Vacancy Postion :-</strong> <%=results.vacancyRole%>
 						<br>
-						Required Skillset :- <%=results.requiredSkillSet%>
+						<strong>Required Skillset :-</strong> <%=results.requiredSkillSet%>
 						<br>
 						<div class="deadline">Apply By <%=results.deadline%></div>
 					</div>
-					
 				</p>
-				<button type="submit" class="btn btn-lg applyNow">Apply Now</button>
+				<button type="submit" class="btn btn-lg applyNow">
+					<a href="/chat/<%=results.projectId %>/<%=results.requirementId%>/<%=regno%>">Apply Now</a></button>
 			</div>
 		</div>
-		<br>
+		<br>		
 	<%})%>
 </div>
+<%- include ('./partials/footer.ejs'); -%>

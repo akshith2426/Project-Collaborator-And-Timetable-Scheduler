@@ -1,3 +1,6 @@
+body {
+	background-color: #adb3bc;
+}
 nav {
 	position: fixed;
 	z-index: 10;
@@ -7,7 +10,7 @@ nav {
 	font-family: 'Montserrat', sans-serif;
 	padding: 0 5%;
 	height: 80px;
-	background-color: #7434e3;
+	background-color: #222e3e;
 }
 nav .logo {
 	float: left;
@@ -16,7 +19,7 @@ nav .logo {
 	display: flex;
 	align-items: center;
 	font-size: 24px;
-	color: #fff;
+	color: #ff8201;
 }
 nav .links {
 	float: right;
@@ -36,7 +39,7 @@ nav .links a {
 	padding: 1em;
 	font-size: 16px;
 	font-weight: bold;
-	color: #fff;
+	color: #ff8201;
 	text-decoration: none;
 }
 #nav-toggle {
@@ -76,7 +79,7 @@ nav .icon-burger .line {
 		height: auto;
 		flex-direction: column;
 		justify-content: space-evenly;
-		background-color: rgba(116, 52, 227, 0.8);
+		background-color: #222e3e;
 		overflow: hidden;
 		box-sizing: border-box;
 		transition: all .5s ease-in-out;
@@ -102,16 +105,33 @@ nav .icon-burger .line {
 }
 .card {
 	border-radius: 15px;
+	background-color: #222e3e;
+}
+/* .card-body {
+	display: flex;
+	flex-direction: column;
+} */
+card-text {
+	color: #222e3e;
 }
 .jumbotron {
-	background-color: #f1f1f1;
+	background-color: #dbe1eb;
+	color: #222e3e;
+}
+.projectLeader {
+	color: #ff8201;
 }
 .timestamp {
 	float: right;
 	font-weight: 500;
+	color: #ff8201;
+}
+hr {
+	border-color: #adb3bc;
 }
 .projectTitle {
 	text-align: center;
+	color: #ff8201;
 }
 .deadline {
 	color: #fe0000;
@@ -119,7 +139,11 @@ nav .icon-burger .line {
 	float: right;
 }
 .applyNow {
-	background-color: #7434e3;
-	color: #fff;
-	text-align: center;
+	background-color: #ff8201;
+	color: #222e3e;
+	font-weight: 700;
+}
+.applyNow a {
+	color: #222e3e;
+	text-decoration: none;
 }

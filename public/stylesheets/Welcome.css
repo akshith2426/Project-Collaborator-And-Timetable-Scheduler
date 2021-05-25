@@ -1,51 +1,62 @@
-body{
-    background-color: #E5E5E5;
+body {
+	background-color: #e5e5e5;
 }
-.nav{
-    background-color: #7434E3 ;
-    padding: 50px;
-}
-
-.nav h1{
-    text-align: left;
-    color: white;
-    padding-right: 100px;
+.nav {
+	background-color: #222e3e;
+	padding: 50px;
 }
 
-.nav h4{
-    color: white;
-    padding-top: 12px;
-    margin-left: 50px;
-    margin-right: 50px;
+.nav h1 {
+	text-align: left;
+	color: #ff8201;
+	padding-right: 100px;
 }
 
-.nav a{
-    margin-left: 100px;
-    
+.nav h4 {
+	color: #ff8201;
+	padding-top: 12px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+.dashboard {
+	text-decoration: none;
+	color: #ff8201;
+}
+.dashboard:hover {
+	text-decoration: none;
+	color: #ff8201;
+}
+.nav .btn {
+	color: #222e3e;
+	background-color: #ff8201;
+	border: none;
+	margin-left: 100px;
 }
 
-.card{
-    height: 450px;
-    border-radius: 10px;
+.card {
+	height: 500px;
+	border-radius: 10px;
+	background-color: #adb3bc;
 }
 
-.card-title{
-    text-align: center;
-    margin-top: 20px;
+.card-title {
+	text-align: center;
+	margin-top: 20px;
+	color: #222e3e;
 }
 
-.card-body p{
-    margin: 50px;
-    text-align: center;
-    font-size: large;
+.card-body p {
+	margin: 50px;
+	text-align: center;
+	font-size: large;
+	color: #222e3e;
 }
 
-.card-body a{
-    margin-top: 100px;
-    margin-left: 180px;
-    background-color:#7434E3 ;
-    color: white;
+.card-body a {
+	margin-top: 100px;
+	margin-left: 180px;
+	font-weight: 600;
+	padding: 10px;
+	background-color: #222e3e;
+	color: #ff8201;
 }
-
-
-

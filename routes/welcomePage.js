@@ -3,7 +3,9 @@ const router = express.Router();
 const mysql = require('mysql');
 
 router.get('/', (req, resp) => {
-	resp.render('welcomePage');
+	var userData = req.user;
+	//console.log(userData);
+	resp.render('welcomePage', { userData: userData });
 });
 
 module.exports = router;

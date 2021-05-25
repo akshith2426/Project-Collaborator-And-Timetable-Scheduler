@@ -1,19 +1,17 @@
 var LocalStrategy = require('passport-local').Strategy;
 var mysql = require('mysql');
 var bcrypt = require('bcryptjs');
-
 var con = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
 	password: '',
-	database: 'software_projecttesting',
+	database: 'software_project_testing2',
 	multipleStatements: true
 });
 con.connect(function(error) {
 	if (error) throw error;
 	console.log('MySQL Database Connected for authentication Pages');
 });
-
 module.exports = function(passport) {
 	// passport session setup
 	// required for persistent login sessions
@@ -56,22 +54,15 @@ module.exports = function(passport) {
 							username: username,
 							password: password,
 							fullname: req.body.fullname,
-							regno: req.body.regno,
-							batch: req.body.batch
+							regno: req.body.regno
 						};
 						// console.log(req.body);
 
 						var insertQuery =
-							'INSERT INTO users_table ( username,password ,fullname,regno,batch ) values (?,?,?,?,?)';
+							'INSERT INTO users_table ( username,password ,fullname,regno ) values (?,?,?,?)';
 						con.query(
 							insertQuery,
-							[
-								newUserMysql.username,
-								newUserMysql.password,
-								newUserMysql.fullname,
-								newUserMysql.regno,
-								newUserMysql.batch
-							],
+							[ newUserMysql.username, newUserMysql.password, newUserMysql.fullname, newUserMysql.regno ],
 							function(mistake, row) {
 								newUserMysql.id = row.insertId;
 								return done(null, newUserMysql);

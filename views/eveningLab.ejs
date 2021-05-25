@@ -144,8 +144,8 @@
       document.querySelectorAll(".slot").forEach((item, index) => {
         item.addEventListener("click", function () {
           item.disabled = "true";
-          item.style.backgroundColor = "#FFFF2E";
-          item.style.color = "rgb(211,23,23)";
+          item.style.backgroundColor = "#222e3e";
+          item.style.color = "#ff8201";
           console.log(item.className.substring(9, 11));
           classSlots.push(item.className.substring(9, 11));
           //   console.log(JSON.stringify(classSlots));

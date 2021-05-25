@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Engineering Project</title>
+    <meta name="viewport" cdsdsd Project</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
@@ -16,18 +15,23 @@
         <h1>Home</h1>
         <h4>Timetable Scheduler</h4>
         <h4>Project collaborator</h4>
-
-        <a href="/login" class="btn btn-light btn-lg "> <b>Local Login</b></a>
+        <%if(userData== undefined){%>
+          <a href="/login" class="btn btn-light btn-lg "> <b>Local Login</b></a>
         <a href="/signup" class="btn btn-light btn-lg"> <b>Local Signup</b></a>
+        <%} else{%>
+          <h4><a href="/dashboard" class="dashboard">Dashboard</a></h4>
+          <a href="/logout" class="btn btn-light btn-lg"><strong>Logout</strong></a>
+        <%}%>
+        
     </div>
-    
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Timetable Scheduler</h4>
-                  <p class="card-text">User can schedule their free time tasks in hectic time table during the semister.</p>
+                  <p class="card-text">User can schedule their freetime tasks in the hectic timetable during thhe semesters</p>
                   <a href="#" class="btn ">Add Timetable</a>
                 </div>
               </div>

@@ -1,71 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+    />
     <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
-    <link rel="stylesheet" href="/stylesheets/dashboard.css">
+    <link rel="stylesheet" href="/stylesheets/dashboard.css" />
+  </head>
+  <body> 
+    <nav>
+      <input id="nav-toggle" type="checkbox" />
+      <div class="logo"><strong><%= user.username %> dashboard</strong></div>
+      <ul class="links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/editProfile">Edit Profile</a></li>
+        <li><a href="/projectsCollaborator/myProjects">My Projects</a></li>
+        <% if (user.batch==1){%>
+        <li>
+          <a href="/freeTimeScheduler/eveningLab"
+            >Morning Theory & Evening Lab</a
+          >
+        </li>
+        <%}%> <% if (user.batch==0){%>
+        <li>
+          <a href="/freeTimeScheduler/morningLab"
+            >Morning Lab & Evening Theory</a
+          >
+        </li>
+        <%}%> <% if (user.batch==1){%>
+        <li>
+          <a href="/freeTimeScheduler/freeSlots/EveningLab">All Events</a>
+        </li>
+        <%}%> <% if (user.batch==0){%>
+        <li>
+          <a href="/freeTimeScheduler/freeSlots/MorningLab">All Events</a>
+        </li>
+        <%}%>
+        <li><a href="/projectsCollaborator/projectsView">Projects View</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+      <label for="nav-toggle" class="icon-burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </label>
+    </nav>
+    <br /><br /><br /><br />
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <strong>username</strong>: <%= user.username %><br />
+          <strong>regno</strong>: <%= user.regno %><br />
+          <%if(user.skillset != ''){%>
+          <strong>Skill Set</strong>: <%=user.skillset %> <%}%>
+          <%if(user.subdomain1 != '' && user.subdomain3 != '' && user.subdomain3
+          != ''){%>
+          <ul>
+            <li><%=user.subdomain1 %></li>
+            <li><%=user.subdomain2 %></li>
+            <li><%=user.subdomain3 %></li>
+          </ul>
+          <%}%>
+        </div>
+        <div class="col-sm-6">
+          <%if(user.image==''){%>
+          <img
+            src="/images/defaultProfilePicture.jpg"
+            alt="default-profile-picture"
+          />
+          <%}%> <%if(user.image!=''){%>
+          <img
+            src="<%=user.image%>"
+            alt="default-profile-picture"
+            width="200px"
+            height="200px"
+          />
+          <%}%>
+        </div>
+      </div>
+    </div>
+    <!--Applied Projects-->
+    <%if(appliedProjects.length > 0){%>
+      <div class="container">
+        <h4>Applied Projects</h4>
+        <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Project Title</th>
+                  <th scope="col">Vacancy Role</th>
+                  <th scope="col">Project Leader</th>
+                  <th scope="col">Deadline</th>
+                  <th scope="col">Chat Room</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%appliedProjects.forEach(function(appliedProject){%>
+                  <tr>
+                    <td><%=appliedProject.projectTitle%></td>
+                    <td><%=appliedProject.vacancyRole%></td>
+                    <td><%=appliedProject.projectLeader%></td>
+                    <td><%=appliedProject.deadline%></td>
+                    <td><a href="/chat/<%=appliedProject.chatRoomId%>">Click Here</a></td>
+                  </tr>
+                <%})%>
+              </tbody>
+        </table>
+      </div>
+    <%}%>
+
+    <!--Leader Projects with option of deleting application -->
+    <%if(leaderProjects.length > 0){%>
+      <div class="container">
+        <h4>Leader Projects - Applicants</h4>
+        <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Project Title</th>
+                  <th scope="col">Vacancy Role</th>
+                  <th scope="col">Applicant Reg Number</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Chat Room</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%leaderProjects.forEach(function(leaderProject){%>
+                  <tr>
+                    <td><%= leaderProject.projectTitle%></td>
+                    <td><%= leaderProject.vacancyRole%></td>
+                    <td><%=leaderProject.regno%></td>
+                    <td><a href="/accept/<%=leaderProject.chatRoomId%>">Accept</a>  <a href="/delete/chat/<%=leaderProject.chatRoomId%>">Reject</a></td>
+                    <td><a href="/chat/<%=leaderProject.chatRoomId%>">Click Here</a></td>
+                  </tr>
+                <%})%>
+              </tbody>
+        </table>
+      </div>
+    <%}%>
+
+    <!--Collaborated Projects Applicants-->
+    <%if(collaboratedProjects.length > 0){%>
+      <div class="container">
+        <h4>Collaborated Projects - Applicants</h4>
+        <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Project Title</th>
+                  <th scope="col">Vacancy Role</th>
+                  <th scope="col">Applicant Reg Number</th>
+                  <th scope="col">Chat Room</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%collaboratedProjects.forEach(function(collaboratedProject){%>
+                  <tr>
+                    <td><%= collaboratedProject.projectTitle%></td>
+                    <td><%= collaboratedProject.vacancyRole%></td>
+                    <td><%=collaboratedProject.regno%></td>
+                    <td><a href="/chat/<%=collaboratedProject.chatRoomId%>">Click Here</a></td>
+                  </tr>
+                <%})%>
+              </tbody>
+        </table>
+      </div>
+    <%}%>
     
-</head>
-<body>
-<nav>
-	<input id="nav-toggle" type="checkbox">
-	<div class="logo"><strong><%= user.username %> dashboard</strong></div>
-	<ul class="links">
-		<li><a href="/">Home</a></li>
-		<li><a href="/editProfile">Edit Profile</a></li>
-		<% if (user.batch==1){%>
-			<li><a href="/freeTimeScheduler/eveningLab">Morning Theory & Evening Lab</a></li>
-		<%}%>
-		<% if (user.batch==0){%>
-			<li><a href="/freeTimeScheduler/morningLab">Morning Lab & Evening Theory</a></li>
-		<%}%>
-		<% if (user.batch==1){%>
-			<li><a href="/freeTimeScheduler/freeSlots/EveningLab">All Events</a></li>
-		<%}%>
-		<% if (user.batch==0){%>
-			<li><a href="/freeTimeScheduler/freeSlots/MorningLab">All Events</a></li>
-		<%}%>
-		<li><a href="/projectsCollaborator/projectsView">Projects View</a></li>
-		<li><a href="/logout">Logout</a></li>
-	</ul>
-	<label for="nav-toggle" class="icon-burger">
-		<div class="line"></div>
-		<div class="line"></div>
-		<div class="line"></div>
-	</label>
-</nav>
-<br><br><br><br>
-<div class="container">
-	<div class="row">
-		<div class="col-sm-6">
-						<strong>username</strong>: <%= user.username %><br>
-						<strong>regno</strong>: <%= user.regno %><br>
-						<%if(user.skillset != ''){%>
-						<strong>Skill Set</strong>: <%=user.skillset %>
-						<%}%>
-						<%if(user.subdomain1 != '' && user.subdomain3 != '' && user.subdomain3 != ''){%>
-						<ul>
-							<li><%=user.subdomain1 %></li>
-							<li><%=user.subdomain2 %></li>
-							<li><%=user.subdomain3 %></li>
-						</ul> 
-						<%}%>
-		</div>
-		<div class="col-sm-6">
-			<%if(user.image==''){%>
-				<img src="/images/defaultProfilePicture.jpg" alt="default-profile-picture">
-			<%}%>
-			<%if(user.image!=''){%>
-				<img src="<%=user.image%>" alt="default-profile-picture" width="200px" height="200px">
-			<%}%>
-		</div>
+    <%- include ('./partials/footer.ejs'); -%>
 
-	</div>
-
-</div>
-<%- include ('./partials/footer.ejs'); -%>

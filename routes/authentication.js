@@ -11,7 +11,7 @@ var con = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
 	password: '',
-	database: 'software_projecttesting',
+	database: 'software_project_testing2',
 	multipleStatements: true
 });
 con.connect(function(error) {
@@ -55,11 +55,35 @@ router.post(
 );
 
 router.get('/dashboard', isLoggedIn, function(req, res) {
-	// console.log(req.user.batch);
-	res.render('dashboard.ejs', {
-		user: req.user // get the user out of session and pass to template
+	var regno = req.user.regno;
+	var appliedProjectsQuery =
+		'SELECT * from chatrooms JOIN projectrequirement ON chatrooms.requirementId = projectrequirement.requirementId JOIN projectstable ON projectstable.projectId=projectrequirement.projectId where chatrooms.regno =?';
+	con.query(appliedProjectsQuery, [ regno ], function(err, appliedProjects) {
+		if (err) {
+			console.log(err);
+		}
+		//console.log(appliedProjects);
+		var leaderProjectsQuery =
+			'SELECT * FROM projectrequirement JOIN projectstable ON projectstable.projectId=projectrequirement.projectId JOIN teammembers ON projectstable.projectId=teammembers.projectId JOIN users_table ON teammembers.regno=users_table.regno  JOIN chatrooms ON chatrooms.requirementId=projectrequirement.requirementId WHERE teammembers.memberStatus=1 AND users_table.regno=?';
+		con.query(leaderProjectsQuery, [ req.user.regno ], function(err, leaderProjects) {
+			if (err) {
+				console.log(err);
+			}
+			//console.log(leaderProjects);
+			var collaboratedProjectsQuery =
+				'SELECT * FROM projectrequirement JOIN projectstable ON projectstable.projectId=projectrequirement.projectId JOIN teammembers ON projectstable.projectId=teammembers.projectId JOIN users_table ON teammembers.regno=users_table.regno  JOIN chatrooms ON chatrooms.requirementId=projectrequirement.requirementId WHERE teammembers.memberStatus=0 AND users_table.regno=?';
+			con.query(collaboratedProjectsQuery, [ req.user.regno ], function(error, collaboratedProjects) {
+				res.render('dashboard', {
+					user: req.user,
+					appliedProjects: appliedProjects,
+					leaderProjects: leaderProjects,
+					collaboratedProjects: collaboratedProjects
+				});
+			});
+		});
 	});
 });
+
 router.get('/editProfile', isLoggedIn, function(req, res) {
 	res.render('editProfile.ejs', {
 		user: req.user
@@ -106,3 +130,5 @@ router.get('/logout', function(req, res) {
 });
 
 module.exports = router;
+
+// SELECT chatrooms.chatRoomId,chatrooms.projectId,chatrooms.regno ,users_table.fullname from teamMembers JOIN users_table ON users_table = "${req.user.regno}" JOIN chatrooms ON teammembers.projectId = chatrooms.projectId WHERE teammembers.memberStatus = 1 and teammembers.regno = "${req.user.regno}"

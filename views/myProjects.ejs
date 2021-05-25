@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Page</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/stylesheets/myProjects.css" />
+  </head>
+  <body>
+    <nav>
+      <input id="nav-toggle" type="checkbox" />
+      <div class="logo"><strong>My Projects</strong></div>
+      <ul class="links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/projectsCollaborator/projectsView">Projects View</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+      <label for="nav-toggle" class="icon-burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </label>
+    </nav>
+    <br /><br /><br /><br />
+    
+      <%if(projectData.length > 0){%>
+        <h4>Collaborated Projects</h4>
+        <div class="container">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Project Title</th>
+                    <th scope="col">Project Leader</th>
+                    <th scope="col">Chatroom</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <%projectData.forEach(function(project){%>
+                  <%if(project.regno==user.regno && project.memberStatus==0){%>
+                    <tr class="table-secondary">
+                        <td><%=project.projectTitle%></td>
+                        <td><%=project.projectLeader%></td>
+                        <td><a href="#">Click Here</a></td>
+                    </tr>
+                <%}%>
+                <%})%>
+              </tbody>
+            </table>
+        </div>
+      <%}%> 
+    <div class="container">
+      <%projectData.forEach(function(project){%>
+        <%if(project.regno==user.regno && project.memberStatus==1){%>
+          <div class="jumbotron">
+            <div>
+              <h4>Project Title : <%= project.projectTitle%></h4>
+              <button type="button" class="btn btn-lg addBtn">
+                <a href="/projectsCollaborator/newRequirement/<%=project.projectId%>">Add Requirement</a>
+              </button>
+            </div>
+            <br><br>
+            <%if (requirementData.length > 0) {%>
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr >
+                    <th scope="col">Vacancy Role</th>
+                    <th scope="col">Required Skillset</th>
+                    <th scope="col">Deadline</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%requirementData.forEach(function(reqData){%>
+                    <%if(reqData.projectId==project.projectId){%>
+                      <tr class="table-primary">
+                        <td><%=reqData.vacancyRole%></td>
+                        <td><%=reqData.requiredSkillSet%></td>
+                        <td><%=reqData.deadline %></td>
+                        <td><a href='/projectsCollaborator/deleteRequirement/<%=reqData.requirementId%>'>DELETE</a></td>
+                      </tr>
+                    <%}%>
+                  <%})%>
+                </tbody>
+              </table>
+            <%}%> 
+          </div>
+        <%}%>
+      <%})%>
+    </div>
+    <%- include ('./partials/footer.ejs'); -%>
+

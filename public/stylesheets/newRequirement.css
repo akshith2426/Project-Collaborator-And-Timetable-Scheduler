@@ -1,0 +1,158 @@
+body {
+	background-color: #adb3bc;
+}
+nav {
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	right: 0;
+	top: 0;
+	font-family: 'Montserrat', sans-serif;
+	padding: 0 5%;
+	height: 80px;
+	background-color: #222e3e;
+}
+nav .logo {
+	float: left;
+	width: 40%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	font-size: 24px;
+	color: #ff8201;
+}
+nav .links {
+	float: right;
+	padding: 0;
+	margin: 0;
+	width: 60%;
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+nav .links li {
+	list-style: none;
+}
+nav .links a {
+	display: block;
+	padding: 1em;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ff8201;
+	text-decoration: none;
+}
+#nav-toggle {
+	position: absolute;
+	top: -100px;
+}
+nav .icon-burger {
+	display: none;
+	position: absolute;
+	right: 5%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+nav .icon-burger .line {
+	width: 30px;
+	height: 5px;
+	background-color: #fff;
+	margin: 5px;
+	border-radius: 3px;
+	transition: all .3s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+	nav .logo {
+		float: none;
+		width: auto;
+		justify-content: center;
+	}
+	nav .links {
+		float: none;
+		position: fixed;
+		z-index: 9;
+		left: 0;
+		right: 0;
+		top: 100px;
+		bottom: 100%;
+		width: auto;
+		height: auto;
+		flex-direction: column;
+		justify-content: space-evenly;
+		background-color: #222e3e;
+		overflow: hidden;
+		box-sizing: border-box;
+		transition: all .5s ease-in-out;
+	}
+	nav .links a {
+		font-size: 20px;
+	}
+	nav :checked ~ .links {
+		bottom: 0;
+	}
+	nav .icon-burger {
+		display: block;
+	}
+	nav :checked ~ .icon-burger .line:nth-child(1) {
+		transform: translateY(10px) rotate(225deg);
+	}
+	nav :checked ~ .icon-burger .line:nth-child(3) {
+		transform: translateY(-10px) rotate(-225deg);
+	}
+	nav :checked ~ .icon-burger .line:nth-child(2) {
+		opacity: 0;
+	}
+}
+#newRequirementsDiv {
+	background-color: #adb3bc;
+}
+.col-form-label {
+	color: #222e3e;
+	font-weight: bold;
+}
+.projectTitle {
+	color: #ff8201;
+	font-weight: 600;
+	border: 2px solid #ff8201;
+}
+.projectTitle::placeholder {
+	color: #ff8201;
+	opacity: 0.7;
+	font-weight: 600;
+}
+.vacancyRole {
+	color: #ff8201;
+	font-weight: 600;
+	border: 2px solid #ff8201;
+}
+.vacancyRole::placeholder {
+	color: #ff8201;
+	opacity: 0.7;
+	font-weight: 600;
+}
+.requiredSkillSet {
+	color: #ff8201;
+	font-weight: 600;
+	border: 2px solid #ff8201;
+}
+.requiredSkillSet::placeholder {
+	color: #ff8201;
+	opacity: 0.7;
+	font-weight: 600;
+}
+.deadline {
+	color: #ff8201;
+	font-weight: 600;
+	border: 2px solid #ff8201;
+}
+.deadline::placeholder {
+	color: #ff8201;
+	opacity: 0.7;
+	font-weight: 600;
+}
+.submitBtn {
+	color: #222e3e;
+	border: 5px solid #16c81d;
+	font-weight: 700;
+	border-radius: 20px;
+}

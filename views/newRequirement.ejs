@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Requirements Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="/stylesheets/newRequirement.css">
+    
+</head>
+<body>
+<nav>
+	<input id="nav-toggle" type="checkbox">
+	<div class="logo"><strong>New Requirement Form</strong></div>
+	<ul class="links">
+		<li><a href="/projectsCollaborator/projectsView">Projects View</a></li>
+		<li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+		<li><a href="/">Timetable Scheduler</a></li>
+		<li><a href="/logout">Logout</a></li>
+	</ul>
+	<label for="nav-toggle" class="icon-burger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</label>
+</nav> 
+<br><br><br><br> 
+<div id="newRequirementsDiv" class="container">
+	<form action="/projectsCollaborator/newRequirement/<%=projectId%>" method="POST">
+		            <div class="form-group w-75 align-center">
+                        <label class="col-form-label col-form-label-lg">Project Title</label>
+                        <input type="text" class="form-control projectTitle" name="projectTitle" placeholder="Enter Project Title" value="<%= projectInfo[0].projectTitle%>">
+                    </div>
+                    <div class="form-group w-75 align-center">
+                        <label class="col-form-label col-form-label-lg">Vacancy Role</label>
+                        <input type="text" class="form-control vacancyRole" name="vacancyRole" placeholder="Enter Vacancy Role" >
+                    </div>
+					<div class="form-group w-75 align-center">
+                        <label class="col-form-label col-form-label-lg">Required Skillset</label>
+                        <textarea class="form-control requiredSkillSet" name="requiredSkillSet" placeholder="Enter Required Skill Set" rows="5" ></textarea>
+                    </div>  
+					<div class="form-group w-75 align-center">
+                        <label class="col-form-label col-form-label-lg">Deadline</label>
+                        <input type="date" class="form-control deadline" name="deadline" placeholder="Enter Deadline" >
+                    </div>
+					<div class="text-center">
+                        <button type="submit" class="btn btn-lg submitBtn">Submit Requirement</button>
+                    </div>
+	</form>
+	<br>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+<%- include ('./partials/footer.ejs'); -%>

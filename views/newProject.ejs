@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,24 +42,13 @@
                     <div class="form-group w-75 align-center">
                         <label class="col-form-label col-form-label-lg">Team Member Details</label>
                         <div class="team-members">
-                            <input type="text" class="form-control teamMember" name="projectMember[]"><br>
+                            <input type="text" class="form-control teamMember" name="projectMember" placeholder="Enter Registration Number"><br>
+                            <input type="text" class="form-control teamMember" name="projectMember" placeholder="Enter Registration Number"><br>
                         </div>
                         <button type="button" class="btn btn-md addNewMemberBtn" id="addnewMemberBtn">Add New Member</button>
                     </div>
-					<div class="form-group w-75 align-center">
-                        <label class="col-form-label col-form-label-lg">Vacancy Role</label>
-                        <input type="text" class="form-control vacancyRole" name="vacancyRole" placeholder="Enter Vacancy Role" >
-                    </div>
-					<div class="form-group w-75 align-center">
-                        <label class="col-form-label col-form-label-lg">Required Skillset</label>
-                        <textarea class="form-control requiredSkillSet" name="requiredSkillSet" placeholder="Enter Required Skill Set" rows="5" ></textarea>
-                    </div>  
-					<div class="form-group w-75 align-center">
-                        <label class="col-form-label col-form-label-lg">Deadline</label>
-                        <input type="date" class="form-control deadline" name="deadline" placeholder="Enter Deadline" >
-                    </div>
 					<div class="text-center">
-                        <button type="submit" class="btn btn-lg submitBtn">Submit Application</button>
+                        <button type="submit" class="btn btn-lg submitBtn">Create Project</button>
                     </div>
 	</form>
 	<br>
@@ -69,7 +58,7 @@
     $(document).ready(function() {
     $('.addNewMemberBtn').click(function(e){
         e.preventDefault();
-        $('.team-members').append('<input type="text" class="form-control teamMember" name="projectMember[]"><br>');
+        $('.team-members').append('<input type="text" class="form-control teamMember" name="projectMember" placeholder="Enter Registration Number"><br>');
     })
     
 })

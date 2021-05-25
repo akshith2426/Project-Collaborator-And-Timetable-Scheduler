@@ -1,3 +1,6 @@
+body {
+	background-color: #adb3bc;
+}
 nav {
 	position: fixed;
 	z-index: 10;
@@ -7,7 +10,7 @@ nav {
 	font-family: 'Montserrat', sans-serif;
 	padding: 0 5%;
 	height: 80px;
-	background-color: #7434e3;
+	background-color: #222e3e;
 }
 nav .logo {
 	float: left;
@@ -16,7 +19,7 @@ nav .logo {
 	display: flex;
 	align-items: center;
 	font-size: 24px;
-	color: #fff;
+	color: #ff8201;
 }
 nav .links {
 	float: right;
@@ -36,7 +39,7 @@ nav .links a {
 	padding: 1em;
 	font-size: 16px;
 	font-weight: bold;
-	color: #fff;
+	color: #ff8201;
 	text-decoration: none;
 }
 #nav-toggle {
@@ -76,7 +79,7 @@ nav .icon-burger .line {
 		height: auto;
 		flex-direction: column;
 		justify-content: space-evenly;
-		background-color: rgba(116, 52, 227, 0.8);
+		background-color: #222e3e;
 		overflow: hidden;
 		box-sizing: border-box;
 		transition: all .5s ease-in-out;
@@ -100,13 +103,16 @@ nav .icon-burger .line {
 		opacity: 0;
 	}
 }
-
+.left-half {
+	background-color: #ffffff;
+}
 h3 {
-	color: #7434e3;
+	color: #222e3e;
 	text-align: center;
 }
 h4 {
 	text-align: center;
+	color: #222e3e;
 }
 .rl-container {
 	display: table;
@@ -118,7 +124,7 @@ h4 {
 	width: 50%;
 }
 .right-half {
-	background-color: #9767ea;
+	background-color: #222e3e;
 	position: absolute;
 	right: 0px;
 	width: 50%;
@@ -133,56 +139,65 @@ h4 {
 	margin-left: 25%;
 }
 .col-form-label {
-	color: #ffffff;
+	color: #ff8201;
 	font-weight: bold;
 }
 .form-check-label {
-	color: #ffffff;
+	color: #ff8201;
 	font-weight: 600;
 }
 .fullname {
-	color: #7434e3;
+	color: #222e3e;
 	font-weight: 600;
+	border: 2px solid #ff8201;
 }
 .fullname::placeholder {
-	color: #7434e3;
+	color: #ff8201;
 	opacity: 0.7;
 	font-weight: 600;
 }
 .username {
-	color: #7434e3;
+	color: #222e3e;
 	font-weight: 600;
+	border: 2px solid #ff8201;
 }
 .username::placeholder {
-	color: #7434e3;
+	color: #ff8201;
 	opacity: 0.7;
 	font-weight: 600;
 }
+.password {
+	border: 2px solid #ff8201;
+}
 .password::placeholder {
-	color: #7434e3;
+	color: #ff8201;
 	opacity: 0.7;
 	font-weight: 600;
 }
 .regno {
-	color: #7434e3;
+	color: #222e3e;
 	font-weight: 600;
+	border: 2px solid #ff8201;
 }
 .regno::placeholder {
-	color: #7434e3;
+	color: #ff8201;
 	opacity: 0.7;
 	font-weight: 600;
 }
 .signupBtn {
-	background-color: #04fb0e;
+	background-color: #02c209;
 	color: #ffffff;
 	font-weight: bold;
+	width: 40%;
 	padding-left: 20px;
 	padding-right: 20px;
 }
-.login {
-	background-color: #ffffff;
-	color: #9767ea;
-	font-weight: bold;
-	padding-left: 30px;
-	padding-right: 30px;
+.loginText {
+	font-size: 20px;
+	color: #ff8201;
+}
+
+.btn-login {
+	text-decoration: none;
+	color: #08fc12;
 }

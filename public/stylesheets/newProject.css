@@ -1,3 +1,6 @@
+body {
+	background-color: #adb3bc;
+}
 nav {
 	position: fixed;
 	z-index: 10;
@@ -7,7 +10,7 @@ nav {
 	font-family: 'Montserrat', sans-serif;
 	padding: 0 5%;
 	height: 80px;
-	background-color: #7434e3;
+	background-color: #222e3e;
 }
 nav .logo {
 	float: left;
@@ -16,7 +19,7 @@ nav .logo {
 	display: flex;
 	align-items: center;
 	font-size: 24px;
-	color: #fff;
+	color: #ff8201;
 }
 nav .links {
 	float: right;
@@ -36,7 +39,7 @@ nav .links a {
 	padding: 1em;
 	font-size: 16px;
 	font-weight: bold;
-	color: #fff;
+	color: #ff8201;
 	text-decoration: none;
 }
 #nav-toggle {
@@ -76,7 +79,7 @@ nav .icon-burger .line {
 		height: auto;
 		flex-direction: column;
 		justify-content: space-evenly;
-		background-color: rgba(116, 52, 227, 0.8);
+		background-color: #222e3e;
 		overflow: hidden;
 		box-sizing: border-box;
 		transition: all .5s ease-in-out;
@@ -101,63 +104,52 @@ nav .icon-burger .line {
 	}
 }
 #newProjectsDiv {
-	background-color: #c6c3ce;
+	background-color: #adb3bc;
 }
 .col-form-label {
-	color: #7434e3;
+	color: #222e3e;
 	font-weight: bold;
 }
 .projectTitle {
-	color: #7434e3;
+	color: #ff8201;
 	font-weight: 600;
+	border: 2px solid #ff8201;
 }
 .projectTitle::placeholder {
-	color: #7434e3;
+	color: #ff8201;
 	opacity: 0.7;
 	font-weight: 600;
 }
 .projectDescription {
-	color: #7434e3;
+	color: #ff8201;
 	font-weight: 600;
+	border: 2px solid #ff8201;
 }
 .projectDescription::placeholder {
-	color: #7434e3;
+	color: #ff8201;
+	opacity: 0.7;
+	font-weight: 600;
+}
+.teamMember {
+	color: #ff8201;
+	font-weight: 600;
+	border: 2px solid #ff8201;
+}
+.teamMember::placeholder {
+	color: #ff8201;
 	opacity: 0.7;
 	font-weight: 600;
 }
 .addNewMemberBtn {
-	background-color: #7434e3;
-	color: #fff;
-}
-.vacancyRole {
-	color: #7434e3;
+	background-color: #ff8201;
+	color: #222e3e;
 	font-weight: 600;
+	text-transform: uppercase;
+	padding: 10px;
 }
-.vacancyRole::placeholder {
-	color: #7434e3;
-	opacity: 0.7;
-	font-weight: 600;
-}
-.requiredSkillSet {
-	color: #7434e3;
-	font-weight: 600;
-}
-.requiredSkillSet::placeholder {
-	color: #7434e3;
-	opacity: 0.7;
-	font-weight: 600;
-}
-.deadline {
-	color: #7434e3;
-	font-weight: 600;
-}
-.deadline::placeholder {
-	color: #7434e3;
-	opacity: 0.7;
-	font-weight: 600;
-}
+
 .submitBtn {
-	color: #fff;
-	background-color: #06e71c;
+	color: #222e3e;
+	border: 5px solid #16c81d;
 	font-weight: 700;
 }
