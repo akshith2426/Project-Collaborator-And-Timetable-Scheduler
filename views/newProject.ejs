@@ -42,7 +42,7 @@
                     <div class="form-group w-75 align-center">
                         <label class="col-form-label col-form-label-lg">Team Member Details</label>
                         <div class="team-members">
-                            <input type="text" class="form-control teamMember" name="projectMember"><br>
+                            <input type="text" class="form-control teamMember" name="projectMember[]"><br>
                         </div>
                         <button type="button" class="btn btn-md addNewMemberBtn" id="addnewMemberBtn">Add New Member</button>
                     </div>
@@ -69,7 +69,7 @@
     $(document).ready(function() {
     $('.addNewMemberBtn').click(function(e){
         e.preventDefault();
-        $('.team-members').append('<input type="text" class="form-control teamMember" name="projectMember"><br>');
+        $('.team-members').append('<input type="text" class="form-control teamMember" name="projectMember[]"><br>');
     })
     
 })

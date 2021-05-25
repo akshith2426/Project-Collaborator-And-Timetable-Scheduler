@@ -1,118 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Page</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="icon" href="/images/website_icon.jpg" type="image/x-icon" />
-    <link rel="stylesheet" href="/stylesheets/dashboard.css" />
-  </head>
-  <body>
-    <nav>
-      <input id="nav-toggle" type="checkbox" />
-      <div class="logo"><strong><%= user.username %> dashboard</strong></div>
-      <ul class="links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/editProfile">Edit Profile</a></li>
-        <% if (user.batch==1){%>
-        <li>
-          <a href="/freeTimeScheduler/eveningLab"
-            >Morning Theory & Evening Lab</a
-          >
-        </li>
-        <%}%> <% if (user.batch==0){%>
-        <li>
-          <a href="/freeTimeScheduler/morningLab"
-            >Morning Lab & Evening Theory</a
-          >
-        </li>
-        <%}%> <% if (user.batch==1){%>
-        <li>
-          <a href="/freeTimeScheduler/freeSlots/EveningLab">All Events</a>
-        </li>
-        <%}%> <% if (user.batch==0){%>
-        <li>
-          <a href="/freeTimeScheduler/freeSlots/MorningLab">All Events</a>
-        </li>
-        <%}%>
-        <li><a href="/projectsCollaborator/projectsView">Projects View</a></li>
-        <li><a href="/logout">Logout</a></li>
-      </ul>
-      <label for="nav-toggle" class="icon-burger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </label>
-    </nav>
-    <br /><br /><br /><br />
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
-          <strong>username</strong>: <%= user.username %><br />
-          <strong>regno</strong>: <%= user.regno %><br />
-          <%if(user.skillset != ''){%>
-          <strong>Skill Set</strong>: <%=user.skillset %> <%}%>
-          <%if(user.subdomain1 != '' && user.subdomain3 != '' && user.subdomain3
-          != ''){%>
-          <ul>
-            <li><%=user.subdomain1 %></li>
-            <li><%=user.subdomain2 %></li>
-            <li><%=user.subdomain3 %></li>
-          </ul>
-          <%}%>
-        </div>
-        <div class="col-sm-6">
-          <%if(user.image==''){%>
-          <img
-            src="/images/defaultProfilePicture.jpg"
-            alt="default-profile-picture"
-          />
-          <%}%> <%if(user.image!=''){%>
-          <img
-            src="<%=user.image%>"
-            alt="default-profile-picture"
-            width="200px"
-            height="200px"
-          />
-          <%}%>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <h3>Collaborated Projects</h3>
-      <%result.forEach(function(results){%> <%if(user.regno== results.regno &&
-      results.memberStatus==0){%>
-      <div class="jumbotron"><%=results['projectTitle']%></div>
-      <%}%> <%})%>
-    </div>
-    <div class="container">
-      <% var counter=0; %>
-      <h3>My Leader Projects</h3>
-      <%result.forEach(function(results){%> <%counter=counter+1%>
-      <%if(user.regno== results.regno && results.memberStatus==1){%>
-      <div class="jumbotron"><%=results['projectTitle']%></div>
-      <!-- <p><%=results.projectId %></p> -->
-      <%result2.forEach(function(res2){%> <% if(res2.projectId ==
-      results.projectId){ %>
-      <p>
-        <%=res2.fullname %> - <%=res2.regno %> -
-        <a href="/chat/<%=res2.chatRoomId%> %>">CLICK HERE</a>
-      </p>
-      <% } %> <% }) %> <%}%> <%})%> <%if(counter==0){%>
-      <h1>No Projects Found</h1>
-      <% console.log(counter)%> <%}%>
-    </div>
-    <%- include ('./partials/footer.ejs'); -%>
-  </body>
-</html>
+    <link rel="stylesheet" href="/stylesheets/dashboard.css">
+    
+</head>
+<body>
+<nav>
+	<input id="nav-toggle" type="checkbox">
+	<div class="logo"><strong><%= user.username %> dashboard</strong></div>
+	<ul class="links">
+		<li><a href="/">Home</a></li>
+		<li><a href="/editProfile">Edit Profile</a></li>
+		<% if (user.batch==1){%>
+			<li><a href="/freeTimeScheduler/eveningLab">Morning Theory & Evening Lab</a></li>
+		<%}%>
+		<% if (user.batch==0){%>
+			<li><a href="/freeTimeScheduler/morningLab">Morning Lab & Evening Theory</a></li>
+		<%}%>
+		<% if (user.batch==1){%>
+			<li><a href="/freeTimeScheduler/freeSlots/EveningLab">All Events</a></li>
+		<%}%>
+		<% if (user.batch==0){%>
+			<li><a href="/freeTimeScheduler/freeSlots/MorningLab">All Events</a></li>
+		<%}%>
+		<li><a href="/projectsCollaborator/projectsView">Projects View</a></li>
+		<li><a href="/logout">Logout</a></li>
+	</ul>
+	<label for="nav-toggle" class="icon-burger">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
+	</label>
+</nav>
+<br><br><br><br>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+						<strong>username</strong>: <%= user.username %><br>
+						<strong>regno</strong>: <%= user.regno %><br>
+						<%if(user.skillset != ''){%>
+						<strong>Skill Set</strong>: <%=user.skillset %>
+						<%}%>
+						<%if(user.subdomain1 != '' && user.subdomain3 != '' && user.subdomain3 != ''){%>
+						<ul>
+							<li><%=user.subdomain1 %></li>
+							<li><%=user.subdomain2 %></li>
+							<li><%=user.subdomain3 %></li>
+						</ul> 
+						<%}%>
+		</div>
+		<div class="col-sm-6">
+			<%if(user.image==''){%>
+				<img src="/images/defaultProfilePicture.jpg" alt="default-profile-picture">
+			<%}%>
+			<%if(user.image!=''){%>
+				<img src="<%=user.image%>" alt="default-profile-picture" width="200px" height="200px">
+			<%}%>
+		</div>
+
+	</div>
+
+</div>
+<%- include ('./partials/footer.ejs'); -%>
